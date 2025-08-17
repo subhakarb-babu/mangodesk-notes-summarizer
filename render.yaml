@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: mangodesk-summarizer
+    env: docker
+    plan: free
+    branch: main
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    envVars:
+      - key: APP_NAME
+        value: "Mangodesk Notes Summarizer"
+      - key: APP_ENV
+        value: "production"
+      - key: APP_HOST
+        value: "0.0.0.0"
+      - key: APP_PORT
+        value: "8000"
+
+      # 🔑 Replace these with your real values in Render dashboard
+      - key: GROQ_API_KEY
+        sync: false
+      - key: SMTP_HOST
+        value: "smtp.gmail.com"
+      - key: SMTP_PORT
+        value: "587"
+      - key: SMTP_USERNAME
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
