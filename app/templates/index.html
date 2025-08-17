@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mangodesk Notes Summarizer</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>AI-powered Meeting Notes Summarizer</h1>
+      <section class="card">
+        <form id="sumForm">
+          <label>Custom Instruction / Prompt</label>
+          <textarea id="prompt" required placeholder="e.g., Summarize in bullet points for executives, highlight only action items."></textarea>
+
+          <div class="grid">
+            <div>
+              <label>Paste Transcript (optional)</label>
+              <textarea id="text" placeholder="Paste your transcript here..."></textarea>
+            </div>
+            <div>
+              <label>Or Upload .txt Transcript</label>
+              <input id="file" type="file" accept=".txt" />
+            </div>
+          </div>
+
+          <button type="submit">Generate Summary</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <label>Generated (Editable) Summary</label>
+        <textarea id="summary" placeholder="Your summary will appear here..." rows="16"></textarea>
+      </section>
+
+      <section class="card">
+        <form id="shareForm">
+          <label>Share via Email</label>
+          <input id="recipients" type="text" placeholder="alice@example.com, bob@example.com" />
+          <button type="submit">Send</button>
+        </form>
+        <p id="status"></p>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
