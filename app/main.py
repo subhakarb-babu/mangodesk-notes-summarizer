@@ -15,6 +15,12 @@ templates = Jinja2Templates(directory="app/templates")
 # Routers
 app.include_router(summarize.router)
 
+# Root route
 @app.get("/")
 async def index(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request, "app_name": settings.app_name})
+
+# Catch-all route (important for frontend reloads)
+@app.get("/{full_path:path}")
+async def catch_all(request: Request, full_path: str):
     return templates.TemplateResponse("index.html", {"request": request, "app_name": settings.app_name})
